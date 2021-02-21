@@ -86,7 +86,9 @@ unsigned char _recCS;
 unsigned char _recCalcCS;
 
 
-#if defined(__linux__)
+#if defined(MY_RS485_SWSERIAL)
+SoftwareSerial& _dev = MY_RS485_SWSERIAL;
+#elif defined(__linux__)
 SerialPort _dev = SerialPort(MY_RS485_HWSERIAL);
 #elif defined(MY_RS485_HWSERIAL)
 HardwareSerial& _dev = MY_RS485_HWSERIAL;
